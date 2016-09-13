@@ -1,4 +1,5 @@
 from flask import Flask, request
+import json
 
 app = Flask(__name__)
 
@@ -17,10 +18,10 @@ def meraki():
         
         else:
             secret = "thisshouldbechanged"
-            output = "{}".format(request.json)
+            print (json.dumps(request.json, indent=4))
+
     except:
         output = "Error when dealing with {}".format(request.method)
-    
     
     print (output)
     return (output)
