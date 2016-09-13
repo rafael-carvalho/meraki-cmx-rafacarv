@@ -18,6 +18,7 @@ def meraki():
         
         else:
             secret = "thisshouldbechanged"
+            output = "Post Received. See logs for JSON"
             print (json.dumps(request.json, indent=4))
 
     except:
