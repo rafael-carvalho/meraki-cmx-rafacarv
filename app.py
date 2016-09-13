@@ -14,7 +14,7 @@ def meraki():
     output = "No response"
     try:
         if (request.method == "GET"):
-            output = "cdc34455d960baa0981d7d19f31b3a3923dfbda6"
+            output = "PUT YOUR TOKEN HERE (find it under Network-wide > Configure > General"
         
         else:
             secret = "thisshouldbechanged"
