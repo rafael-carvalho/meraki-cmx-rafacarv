@@ -35,8 +35,8 @@ def meraki():
                 output = "WARNING: Your secret has not been set on the environment variables. The name of the variable needs to be MERAKI_SECRET"
 
             output = "Post Received. See logs for JSON"
-            print (json.dumps(request.json, indent=2))
-            #print (json.dumps(request.json))
+            #print (json.dumps(request.json, indent=2))
+            print (json.dumps(request.json))
 
     except:
         output = "Error when dealing with {}".format(request.method)
