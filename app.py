@@ -20,7 +20,7 @@ def meraki():
     output = "No response"
     try:
         if (request.method == "GET"):
-            output = "ab3d85bf8abccea944c5ee50a9f3b061a7b70825"
+            output = "222c26d193e4d05b4b31b4d94968341b5f1f7fd2"
         
         else:
             secret = "merakicmx"
