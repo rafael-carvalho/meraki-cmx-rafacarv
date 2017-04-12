@@ -3,10 +3,10 @@ Created on Sep 13, 2016
 
 @author: Rafael Carvalho (rafacarv@cisco.com)
 '''
-
 from flask import Flask, request
 import json
-from boto.s3.connection import S3Connection
+import traceback
+import os
 
 app = Flask(__name__)
 
@@ -21,11 +21,19 @@ def meraki():
     output = "No response"
     try:
         if (request.method == "GET"):
-            validator = S3Connection(os.environ['validator'])
-            output = validator
+            try:
+                validator = os.environ['MERAKI_VALIDATOR']
+                output = validator      
+            except:
+                #traceback.print_exc()
+                output = 'Please add your validator to the environment variables. The name of the variable needs to be MERAKI_VALIDATOR'
         
         else:
-            secret = S3Connection(os.environ['validator'])
+            try:
+                my_secret = os.environ['MERAKI_SECRET']
+            except:
+                output = "WARNING: Your secret has not been set on the environment variables. The name of the variable needs to be MERAKI_SECRET"
+
             output = "Post Received. See logs for JSON"
             print (json.dumps(request.json, indent=2))
             #print (json.dumps(request.json))
