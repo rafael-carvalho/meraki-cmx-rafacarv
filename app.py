@@ -6,6 +6,7 @@ Created on Sep 13, 2016
 
 from flask import Flask, request
 import json
+from boto.s3.connection import S3Connection
 
 app = Flask(__name__)
 
@@ -20,13 +21,14 @@ def meraki():
     output = "No response"
     try:
         if (request.method == "GET"):
-            output = "a70d7d804074be01c63b2dc3385e6c3f0adc7fb1"
+            validator = S3Connection(os.environ['validator'])
+            output = validator
         
         else:
-            secret = "merakicmx"
+            secret = S3Connection(os.environ['validator'])
             output = "Post Received. See logs for JSON"
-            #print (json.dumps(request.json, indent=2))
-            print (json.dumps(request.json))
+            print (json.dumps(request.json, indent=2))
+            #print (json.dumps(request.json))
 
     except:
         output = "Error when dealing with {}".format(request.method)

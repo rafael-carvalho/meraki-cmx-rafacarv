@@ -1,3 +1,4 @@
+boto
 Flask
 requests
 gunicorn==19.6.0
