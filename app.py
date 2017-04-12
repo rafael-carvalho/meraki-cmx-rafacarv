@@ -20,10 +20,10 @@ def meraki():
     output = "No response"
     try:
         if (request.method == "GET"):
-            output = "a70d7d804074be01c63b2dc3385e6c3f0adc7fb1"
+            output = "ab3d85bf8abccea944c5ee50a9f3b061a7b70825"
         
         else:
-            secret = "thisshouldbechanged"
+            secret = "merakicmx"
             output = "Post Received. See logs for JSON"
             print (json.dumps(request.json, indent=2))
             #print (json.dumps(request.json))
